@@ -1,13 +1,16 @@
 package com.example.SpringIntro.controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 
 public class HelloController {
-    @GetMapping(value = {"","/","/home"})
+    @RequestMapping(value = {"","/","/home"})
     public String sayHello() {
         return "Hello from BridgeLabz";
+    }
+
+    @RequestMapping(value="/query")
+    public String queryController(@RequestParam(value="name") String name){
+        return "Hello "+name+" !";
     }
 }
